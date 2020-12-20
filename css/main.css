@@ -16,6 +16,26 @@ body
     box-sizing: border-box;
 }
 
+
+.overlay-tint::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.overlay-tint * {
+    z-index: 1;
+}
+
+.background
+{
+    position: relative;
+}
+
 img
 {
     width: 100%;
@@ -43,7 +63,7 @@ img
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 23px;
 }
 
 .topnav a.active
@@ -64,8 +84,26 @@ img
     background-image: url("../img/background.webp");
   
     /* Set a specific height */
-    height: 100vh; 
+    height: 100%;
+    width: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.about-us-background
+{
+    /* The image used */
+    background-image: url("../img/cock_island_restaurant.jpg");
   
+    /* Set a specific height */
+    height: 100%;
+    width: 100%;
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -82,52 +120,69 @@ img
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    text-align: center;
 }
 
+
+.grid-wrapper
+{
+    display: grid;
+    width: 100vw;
+    max-width: 100%;
+
+    grid-template-rows: 100vh 120vh 120vh 30vh;
+}
 
 .grid-wrapper-about
 {
     display: grid;
     width: 100vw;
     max-width: 100%;
-    height: 120vh;
 
-    grid-template-areas: 
-        "lt ri";
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: 120vh 120vh 30vh;
 }
 
-.right-image
+.row-50
 {
-    grid-area: ri;
-    background-color: salmon;
-    width: 50vw;
-    height: 120vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-
-.left-text-container
+.preview-article
 {
-    grid-area: lt;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.left-text-container
+.preview-article-container
 {
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.text-title
+.menu-preview-image
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.about-preview-image
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.preview-title
 {
     font-size: 50px;
 }
 
-.text-title:after
+.preview-title:after
 {
     background-color: #000;
     content: "";
@@ -138,27 +193,11 @@ img
     width: 50%;
 }
 
-.text-title:after
+.preview-title:after
 {
     left: 0.5em;
     margin-right: -50%;
 }
-
-
-.button
-{
-    padding-top: 10vh;
-    border:0.15em solid #000000;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-
-
 
 .menu-text
 {
@@ -192,14 +231,145 @@ img
     margin-right: -50%;
 }
 
+.menu-title:before
+{
+    
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+
+.button
+{
+    padding-top: 10vh;
+    border:0.15em solid #000000;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.dish-description
+{
+    font-size: large;
+    text-align: center;
+}
+
+.footer
+{
+    height: 30vh;
+    background-color: #FFEFFF;
+    display: grid;
+
+    grid-template-areas: 
+        "lo op co";
+
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.logo
+{
+    grid-area: lo;
+
+    
+    padding-top: 10%;
+    padding-left: 5%;
+}
+
+/* The logo is highly volatile. Will most likely break at other resolutions*/
+.logo img
+{
+    width: 114%;
+    height: 75.3%; /* I can't solve this */
+}
+
+.open-hours
+{
+    grid-area: op;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-size: large;
+}
+
+
+.contact
+{
+    grid-area: co;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    font-size: large;
+}
+
+/* Menu.html */
+
+.menu-background
+{
+    /* The image used */
+    background-image: url("../img/crab_rave.webp");
+  
+    /* Set a specific height */
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.menu-background-text
+{
+    font-size: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.menu-title
+{
+    overflow: hidden;
+    text-align: center;
+    font-size: 70px;
+}
+
+.menu-title:before,
+.menu-title:after
+{
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 40%;
+}
+
+.menu-title:before
+{
+    
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.menu-title:after
+{
+    left: 0.5em;
+    margin-right: -50%;
+}
 
 .grid-wrapper-menu
 {
-    background-image: url("img/background.webp");
     display: grid;
-    width: 100%;
-    max-width: 100%;
-    height: 160vh;
 
     grid-template-areas: 
         "a1 a2 a3"
@@ -208,23 +378,33 @@ img
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-
-    gap: 1vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    
+    gap: 2%;
+    padding: 2%;
 }
-
 
 .menu-image
 {
-    width: 100px;
-    height: 100px;
+    height: 35vh;
+    width: 23vw;
     position: relative;
     overflow: hidden;
-    border-radius: 50%;
-    height: 80%;
-    width: 80%;
 }
+
+.center-item
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-wrapper-menu .menu-image img
+{
+    border-radius: 6.9%;
+}
+
+
 
 .dish1
 {
@@ -234,47 +414,39 @@ img
 .dish2
 {
     grid-area: a2;
-    background-color: rebeccapurple;
 }
 
 .dish3
 {
     grid-area: a3;
-    background-color: royalblue;
 }
 
 .dish4
 {
     grid-area: a4;
-    background-color: wheat;
 }
 
 .dish5
 {
     grid-area: a5;
-    background-color: plum;
 }
 
 .dish6
 {
     grid-area: a6;
-    background-color: lawngreen;
 }
 
 .dish7
 {
     grid-area: a7;
-    background-color: magenta;
 }
 
 .dish8
 {
     grid-area: a8;
-    background-color: navy;
 }
 
 .dish9
 {
     grid-area: a9;
-    background-color: brown;
 }
